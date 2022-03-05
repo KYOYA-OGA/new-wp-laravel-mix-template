@@ -1,0 +1,11 @@
+@use '../base' as base;
+@use '../utilities' as *;
+
+.grid-test {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  @include respond(md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

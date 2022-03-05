@@ -1,0 +1,49 @@
+//MEDIA QUERY MANAGER
+
+/*
+ORDER: Base + typography > general layout + grid > page layout > components
+*/
+
+/* prettier-ignore */
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media only screen and (min-width: 576px) { @content };
+  }
+  @if $breakpoint == md {
+    @media only screen and (min-width: 768px) { @content };
+  }
+  @if $breakpoint == lg {
+    @media only screen and (min-width: 992px) { @content };
+  }
+  @if $breakpoint == xl {
+    @media only screen and (min-width: 1200px) { @content };
+  }
+  @if $breakpoint == xxl {
+    @media only screen and (min-width: 1400px) { @content };
+  }
+}
+
+// 縦横比を維持する
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    content: '';
+    float: left;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  & > :first-child {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

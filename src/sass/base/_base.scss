@@ -1,0 +1,39 @@
+// html {
+//   scroll-behavior: smooth;
+// }
+
+.container {
+  max-width: 1140px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* 画面サイズで出し分ける */
+
+.pc-only {
+  display: none;
+}
+.sp-only {
+  display: block;
+}
+.sp-only-l {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .pc-only {
+    display: block;
+  }
+  .sp-only {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .sp-only-l {
+    display: none;
+  }
+}
